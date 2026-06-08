@@ -24,14 +24,40 @@ const serviziOptions = [
 export default function ContattiPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      nome: (form.elements.namedItem("nome") as HTMLInputElement).value + " " + (form.elements.namedItem("cognome") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      azienda: (form.elements.namedItem("azienda") as HTMLInputElement).value,
+      messaggio: [
+        `Telefono: ${(form.elements.namedItem("telefono") as HTMLInputElement).value}`,
+        `Settore: ${(form.elements.namedItem("settore") as HTMLSelectElement).value}`,
+        `Dipendenti: ${(form.elements.namedItem("dipendenti") as HTMLSelectElement).value}`,
+        `Servizio: ${(form.elements.namedItem("servizio") as HTMLSelectElement).value}`,
+        `Messaggio: ${(form.elements.namedItem("messaggio") as HTMLTextAreaElement).value}`,
+      ].filter(l => !l.endsWith(": ")).join("\n"),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error();
       setSubmitted(true);
-    }, 1200);
+    } catch {
+      setError("Errore durante l'invio. Riprova o scrivimi direttamente a info@elisamoratelli.it");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -88,6 +114,7 @@ export default function ContattiPage() {
                     </label>
                     <input
                       type="text"
+                      name="nome"
                       required
                       placeholder="Il tuo nome"
                       className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors"
@@ -99,6 +126,7 @@ export default function ContattiPage() {
                     </label>
                     <input
                       type="text"
+                      name="cognome"
                       required
                       placeholder="Il tuo cognome"
                       className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors"
@@ -112,6 +140,7 @@ export default function ContattiPage() {
                   </label>
                   <input
                     type="text"
+                    name="azienda"
                     placeholder="Nome dell'azienda o attività"
                     className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors"
                   />
@@ -124,6 +153,7 @@ export default function ContattiPage() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
                       placeholder="La tua email"
                       className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors"
@@ -135,6 +165,7 @@ export default function ContattiPage() {
                     </label>
                     <input
                       type="tel"
+                      name="telefono"
                       required
                       placeholder="Il tuo telefono"
                       className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors"
@@ -147,7 +178,7 @@ export default function ContattiPage() {
                     <label className="block text-xs font-sans font-500 uppercase tracking-wider text-text-muted mb-1.5">
                       Settore
                     </label>
-                    <select className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
+                    <select name="settore" className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
                       <option value="">Seleziona...</option>
                       {settori.map((s) => (
                         <option key={s} value={s}>{s}</option>
@@ -158,7 +189,7 @@ export default function ContattiPage() {
                     <label className="block text-xs font-sans font-500 uppercase tracking-wider text-text-muted mb-1.5">
                       N. dipendenti
                     </label>
-                    <select className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
+                    <select name="dipendenti" className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
                       <option value="">Seleziona...</option>
                       {numDipendenti.map((n) => (
                         <option key={n} value={n}>{n}</option>
@@ -171,7 +202,7 @@ export default function ContattiPage() {
                   <label className="block text-xs font-sans font-500 uppercase tracking-wider text-text-muted mb-1.5">
                     Servizio richiesto
                   </label>
-                  <select className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
+                  <select name="servizio" className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors">
                     <option value="">Seleziona...</option>
                     {serviziOptions.map((s) => (
                       <option key={s} value={s}>{s}</option>
@@ -184,6 +215,7 @@ export default function ContattiPage() {
                     Messaggio
                   </label>
                   <textarea
+                    name="messaggio"
                     rows={4}
                     placeholder="Descrivimi brevemente la tua situazione o ciò di cui hai bisogno"
                     className="w-full border border-border-light rounded-lg px-4 py-3 text-sm font-sans text-anthracite bg-white focus:outline-none focus:border-rose-cta transition-colors resize-none"
@@ -198,6 +230,9 @@ export default function ContattiPage() {
                   >
                     {loading ? "Invio in corso..." : "Invia la richiesta"}
                   </button>
+                  {error && (
+                    <p className="text-xs font-sans text-red-500 mt-2.5 text-center">{error}</p>
+                  )}
                   <p className="text-xs font-sans text-text-muted mt-2.5 text-center">
                     Tratto i tuoi dati nel rispetto della normativa sulla privacy.
                   </p>

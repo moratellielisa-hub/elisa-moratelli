@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     }
 
     await resend.emails.send({
-      from: "Sito Elisa Moratelli <onboarding@resend.dev>",
+      from: "Sito Elisa Moratelli <noreply@elisamoratelli.it>",
       to: "info@elisamoratelli.it",
       replyTo: email,
       subject: `Nuova richiesta da ${nome}`,

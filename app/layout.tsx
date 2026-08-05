@@ -19,15 +19,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://elisamoratelli.it"),
   title: {
-    default: "Elisa Moratelli | Consulente del Lavoro",
+    default: "Elisa Moratelli | Consulente del Lavoro a Rovereto",
     template: "%s | Elisa Moratelli",
   },
   description:
-    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo. Elaborazione buste paga, assunzioni, trasformazioni contrattuali, adempimenti INPS e INAIL per aziende e PMI.",
+    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo, a Rovereto (Trentino). Elaborazione buste paga, assunzioni, trasformazioni contrattuali, adempimenti INPS e INAIL per aziende e PMI.",
   keywords: [
     "consulente del lavoro",
+    "consulente del lavoro rovereto",
+    "consulente del lavoro trento",
+    "consulente del lavoro trentino",
     "elaborazione cedolini paga",
     "buste paga aziende",
+    "buste paga rovereto",
     "assunzioni dipendenti",
     "gestione personale PMI",
     "adempimenti INPS INAIL",

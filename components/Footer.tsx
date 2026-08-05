@@ -7,6 +7,7 @@ const linkRapidi = [
   { href: "/servizi", label: "Servizi" },
   { href: "/per-aziende", label: "Per aziende" },
   { href: "/faq", label: "FAQ" },
+  { href: "/blog", label: "Blog" },
   { href: "/contatti", label: "Contatti" },
 ];
 

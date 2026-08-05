@@ -173,9 +173,8 @@ export default function ServiziPage() {
       </section>
 
       {/* CTA */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-24 overflow-hidden bg-rose-cta">
         <AnimatedLines variant="pink" />
-        <div className="absolute inset-0 bg-rose-cta" />
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=60&auto=format&fit=crop')] bg-cover opacity-10" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>

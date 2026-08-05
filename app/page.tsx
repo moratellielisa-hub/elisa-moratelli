@@ -127,13 +127,25 @@ export default function HomePage() {
               "@id": "https://elisamoratelli.it/#business",
               name: "Elisa Moratelli — Consulente del Lavoro",
               description:
-                "Consulente del Lavoro iscritta all'Albo. Specializzata in elaborazione cedolini paga, assunzioni, trasformazioni contrattuali e adempimenti per aziende e PMI.",
+                "Consulente del Lavoro iscritta all'Albo, a Rovereto (TN). Specializzata in elaborazione cedolini paga, assunzioni, trasformazioni contrattuali e adempimenti per aziende e PMI del Trentino.",
               url: "https://elisamoratelli.it",
-              telephone: "+39XXXXXXXXXX",
+              telephone: "+390464356826",
               email: "info@elisamoratelli.it",
               image: "https://elisamoratelli.it/elisa-foto.jpeg",
               priceRange: "€€",
-              areaServed: { "@type": "Country", name: "Italia" },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Rovereto",
+                addressRegion: "Trentino-Alto Adige",
+                postalCode: "38068",
+                addressCountry: "IT",
+              },
+              areaServed: [
+                { "@type": "City", name: "Rovereto" },
+                { "@type": "City", name: "Trento" },
+                { "@type": "AdministrativeArea", name: "Trentino-Alto Adige" },
+                { "@type": "Country", name: "Italia" },
+              ],
               knowsLanguage: "it",
               employee: {
                 "@type": "Person",

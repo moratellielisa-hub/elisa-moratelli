@@ -57,20 +57,6 @@ export const articles: Article[] = [
           "Il Consulente del Lavoro non è un costo, ma una protezione: ogni adempimento gestito correttamente riduce il rischio d'impresa e ti libera tempo da dedicare alla tua attività.",
         ],
       },
-      {
-        heading: "Consulente del Lavoro o commercialista: che differenza c'è?",
-        paragraphs: [
-          "È una domanda frequente. Il commercialista si occupa della parte fiscale e contabile dell'azienda (bilanci, dichiarazioni dei redditi, IVA). Il Consulente del Lavoro è invece lo specialista dei rapporti di lavoro: paghe, contributi, contratti e normativa del lavoro.",
-          "Le due figure sono complementari e spesso lavorano insieme: il commercialista segue i conti dell'azienda, il Consulente del Lavoro segue le persone che ci lavorano.",
-        ],
-      },
-      {
-        heading: "Come scegliere il Consulente del Lavoro giusto",
-        paragraphs: [
-          "Tre criteri contano più di tutti: l'iscrizione all'Albo dei Consulenti del Lavoro (che garantisce abilitazione e aggiornamento professionale), la reperibilità (un consulente che risponde quando hai un dubbio urgente vale moltissimo) e la chiarezza (deve saperti spiegare le cose senza tecnicismi, perché sei tu a firmare).",
-          "Diffida di chi promette solo il prezzo più basso: nella gestione del personale un errore costa molto di più di quanto si risparmia su un cedolino.",
-        ],
-      },
     ],
     faq: [
       {
@@ -176,12 +162,6 @@ export const articles: Article[] = [
         paragraphs: [
           "Un cedolino elaborato male può costare molto più del risparmio ottenuto: contributi errati generano sanzioni e interessi, una comunicazione di assunzione tardiva può costare centinaia di euro, un contratto sbagliato può trasformarsi in un contenzioso con il dipendente.",
           "Nel valutare un preventivo, oltre al prezzo, considera cosa è incluso: la consulenza telefonica è compresa o si paga a parte? Chi risponde alle tue domande, e in quanto tempo? Il consulente ti avvisa proattivamente delle novità normative che riguardano la tua azienda?",
-        ],
-      },
-      {
-        heading: "Il costo è detraibile?",
-        paragraphs: [
-          "Sì: il compenso del Consulente del Lavoro è un costo aziendale interamente deducibile. Questo significa che il costo effettivo per l'azienda è inferiore all'importo fatturato, in proporzione all'aliquota fiscale applicata.",
         ],
       },
       {

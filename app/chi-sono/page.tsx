@@ -6,9 +6,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedLines from "@/components/AnimatedLines";
 
 export const metadata: Metadata = {
-  title: "Chi Sono | Elisa Moratelli Consulente del Lavoro",
+  title: "Chi Sono | Elisa Moratelli, Consulente del Lavoro a Rovereto",
   description:
-    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo. Specializzata in paghe, assunzioni e gestione del personale per aziende e PMI. Precisa, aggiornata e concretamente vicina alla tua azienda.",
+    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo con studio a Rovereto (TN). Specializzata in paghe, assunzioni e gestione del personale per aziende e PMI del Trentino.",
   alternates: { canonical: "https://elisamoratelli.it/chi-sono" },
   openGraph: {
     url: "https://elisamoratelli.it/chi-sono",
@@ -64,10 +64,30 @@ export default function ChiSonoPage() {
               url: "https://elisamoratelli.it/chi-sono",
               image: "https://elisamoratelli.it/elisa_cdl.jpg",
               email: "info@elisamoratelli.it",
+              telephone: "+39 0464 356826",
+              workLocation: {
+                "@type": "Place",
+                name: "Studio CDL Group — Rovereto",
+                address: {
+                  "@type": "PostalAddress",
+                  streetAddress: "Via Parteli 19",
+                  addressLocality: "Rovereto",
+                  addressRegion: "TN",
+                  postalCode: "38068",
+                  addressCountry: "IT",
+                },
+              },
+              sameAs: ["https://www.linkedin.com/in/elisa-moratelli-79a2752aa/"],
               worksFor: { "@type": "Organization", name: "CDL Group", url: "https://www.cdlgroup.net" },
+              memberOf: { "@type": "Organization", name: "Ordine dei Consulenti del Lavoro" },
               hasCredential: {
                 "@type": "EducationalOccupationalCredential",
                 credentialCategory: "Iscrizione all'Albo dei Consulenti del Lavoro",
+                identifier: "351",
+                recognizedBy: {
+                  "@type": "Organization",
+                  name: "Ordine dei Consulenti del Lavoro di Trento",
+                },
               },
               knowsAbout: [
                 "Elaborazione cedolini paga",
@@ -104,8 +124,11 @@ export default function ChiSonoPage() {
             <h1 className="font-serif text-6xl lg:text-7xl text-white leading-[1.05] mb-5">
               Elisa Moratelli
             </h1>
-            <p className="text-lg font-sans text-rose-cipria tracking-wide mb-6">
-              Consulente del Lavoro · CDL Group
+            <p className="text-lg font-sans text-rose-cipria tracking-wide mb-2">
+              Consulente del Lavoro · CDL Group · Rovereto
+            </p>
+            <p className="text-sm font-sans text-white/45 tracking-wide mb-6">
+              Iscritta all&apos;Albo dei Consulenti del Lavoro di Trento — n. 351
             </p>
             <p className="text-lg font-sans text-white/65 leading-relaxed mb-10 max-w-xl mx-auto">
               Precisa, aggiornata e concretamente vicina alla tua azienda.
@@ -129,8 +152,9 @@ export default function ChiSonoPage() {
           <AnimatedSection direction="left" className="lg:col-span-3 order-2 lg:order-1">
             <h2 className="font-serif text-4xl text-anthracite mb-6 leading-snug">Chi sono</h2>
             <p className="text-base font-sans text-text-muted leading-relaxed mb-5">
-              Sono Elisa Moratelli, Consulente del Lavoro specializzata nella gestione del personale
-              per aziende di diverse dimensioni e settori.
+              Sono Elisa Moratelli, Consulente del Lavoro iscritta all&apos;Albo, con studio a Rovereto
+              presso CDL Group. Sono specializzata nella gestione del personale per aziende di diverse
+              dimensioni e settori della Vallagarina, di Trento e di tutto il Trentino.
             </p>
             <p className="text-base font-sans text-text-muted leading-relaxed mb-5">
               Nel corso degli anni ho affiancato piccole e medie imprese, artigiani e professionisti

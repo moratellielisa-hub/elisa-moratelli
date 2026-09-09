@@ -13,6 +13,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Il dominio tecnico di Vercel non deve essere indicizzato come copia del sito:
+      // tutto il traffico va sul dominio canonico.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "elisa-moratelli.vercel.app" }],
+        destination: "https://elisamoratelli.it/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

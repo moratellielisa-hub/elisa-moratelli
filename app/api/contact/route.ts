@@ -4,10 +4,22 @@ import { Resend } from "resend";
 export async function POST(req: NextRequest) {
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { nome, email, azienda, messaggio } = await req.json();
+    const { nome, email, azienda, messaggio, website } = await req.json();
+
+    // Honeypot compilato = bot. Rispondiamo "ok" per non fargli capire che è stato scartato.
+    if (website) {
+      return NextResponse.json({ success: true });
+    }
 
     if (!nome || !email || !messaggio) {
       return NextResponse.json({ error: "Campi obbligatori mancanti" }, { status: 400 });
+    }
+    if (
+      typeof nome !== "string" || typeof email !== "string" || typeof messaggio !== "string" ||
+      nome.length > 200 || email.length > 200 || messaggio.length > 5000 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+      return NextResponse.json({ error: "Dati non validi" }, { status: 400 });
     }
 
     await resend.emails.send({

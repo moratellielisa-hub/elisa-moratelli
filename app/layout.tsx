@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -19,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://elisamoratelli.it"),
   title: {
-    default: "Elisa Moratelli | Consulente del Lavoro a Rovereto",
+    default: "Consulente del Lavoro a Rovereto (TN) | Elisa Moratelli",
     template: "%s | Elisa Moratelli",
   },
   description:
@@ -55,13 +56,11 @@ export const metadata: Metadata = {
     title: "Elisa Moratelli | Consulente del Lavoro",
     description:
       "Buste paga, assunzioni e gestione del personale per aziende e PMI. Consulente del Lavoro iscritta all'Albo, presso CDL Group.",
-    images: [{ url: "/elisa-foto.jpeg", width: 800, height: 1000, alt: "Elisa Moratelli Consulente del Lavoro" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Elisa Moratelli | Consulente del Lavoro",
-    description: "Buste paga, assunzioni e gestione del personale per aziende e PMI.",
-    images: ["/elisa-foto.jpeg"],
+    title: "Elisa Moratelli | Consulente del Lavoro a Rovereto",
+    description: "Buste paga, assunzioni e gestione del personale per aziende e PMI del Trentino.",
   },
 };
 
@@ -76,6 +75,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

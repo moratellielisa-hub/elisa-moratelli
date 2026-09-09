@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 const links = [
   { href: "/chi-sono", label: "Chi sono" },
   { href: "/servizi", label: "Servizi" },
+  { href: "/edilizia", label: "Edilizia" },
   { href: "/per-aziende", label: "Per aziende" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },

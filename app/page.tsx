@@ -14,15 +14,15 @@ import {
   TrendingUp,
   Mail,
   Phone,
+  HardHat,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
-import ServiceCard from "@/components/ServiceCard";
 import AnimatedLines from "@/components/AnimatedLines";
 
 export const metadata: Metadata = {
-  title: "Elisa Moratelli | Consulente del Lavoro — Buste Paga, Assunzioni, Gestione Personale",
+  title: { absolute: "Consulente del Lavoro a Rovereto (TN) | Elisa Moratelli" },
   description:
-    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo. Elaborazione buste paga, assunzioni, trasformazioni contrattuali e adempimenti per aziende e PMI. Precisa, aggiornata, disponibile.",
+    "Elisa Moratelli, Consulente del Lavoro iscritta all'Albo, a Rovereto. Buste paga, assunzioni, trasformazioni contrattuali, cessazioni e adempimenti INPS/INAIL per aziende e PMI di Rovereto, Trento e Trentino.",
   alternates: { canonical: "https://elisamoratelli.it" },
   openGraph: {
     url: "https://elisamoratelli.it",
@@ -47,7 +47,7 @@ const servizi = [
     tagline: "Dall'inquadramento alle comunicazioni.",
     description:
       "Comunicazioni obbligatorie, scelta del contratto, lettere di assunzione e agevolazioni disponibili.",
-    href: "/servizi/assunzioni",
+    href: "/servizi/pratiche-hr",
   },
   {
     icon: RefreshCw,
@@ -63,7 +63,7 @@ const servizi = [
     tagline: "Nessuna scadenza dimenticata.",
     description:
       "INPS, INAIL, dichiarativi annui, comunicazioni obbligatorie e documenti del personale.",
-    href: "/servizi/pratiche-hr",
+    href: "/servizi/dichiarativi-annui",
   },
   {
     icon: AlertCircle,
@@ -129,20 +129,49 @@ export default function HomePage() {
               description:
                 "Consulente del Lavoro iscritta all'Albo, a Rovereto (TN). Specializzata in elaborazione cedolini paga, assunzioni, trasformazioni contrattuali e adempimenti per aziende e PMI del Trentino.",
               url: "https://elisamoratelli.it",
-              telephone: "+390464356826",
+              telephone: "+39 0464 356826",
               email: "info@elisamoratelli.it",
               image: "https://elisamoratelli.it/elisa-foto.jpeg",
+              logo: "https://elisamoratelli.it/opengraph-image",
               priceRange: "€€",
+              currenciesAccepted: "EUR",
               address: {
                 "@type": "PostalAddress",
+                streetAddress: "Via Parteli 19",
                 addressLocality: "Rovereto",
-                addressRegion: "Trentino-Alto Adige",
+                addressRegion: "TN",
                 postalCode: "38068",
                 addressCountry: "IT",
               },
+              hasMap: "https://www.google.com/maps/search/?api=1&query=Via+Parteli+19,+38068+Rovereto+TN",
+              sameAs: [
+                "https://www.linkedin.com/in/elisa-moratelli-79a2752aa/",
+                "https://www.cdlgroup.net",
+              ],
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+                  opens: "08:30",
+                  closes: "12:30",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+                  opens: "14:30",
+                  closes: "17:00",
+                },
+                { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "08:30", closes: "12:30" },
+              ],
+              founder: { "@id": "https://elisamoratelli.it/chi-sono#person" },
               areaServed: [
                 { "@type": "City", name: "Rovereto" },
                 { "@type": "City", name: "Trento" },
+                { "@type": "City", name: "Riva del Garda" },
+                { "@type": "City", name: "Arco" },
+                { "@type": "City", name: "Mori" },
+                { "@type": "City", name: "Ala" },
+                { "@type": "AdministrativeArea", name: "Vallagarina" },
                 { "@type": "AdministrativeArea", name: "Trentino-Alto Adige" },
                 { "@type": "Country", name: "Italia" },
               ],
@@ -155,6 +184,11 @@ export default function HomePage() {
                 hasCredential: {
                   "@type": "EducationalOccupationalCredential",
                   credentialCategory: "Iscrizione all'Albo dei Consulenti del Lavoro",
+                  identifier: "351",
+                  recognizedBy: {
+                    "@type": "Organization",
+                    name: "Ordine dei Consulenti del Lavoro di Trento",
+                  },
                 },
               },
               memberOf: {
@@ -166,11 +200,14 @@ export default function HomePage() {
                 "@type": "OfferCatalog",
                 name: "Servizi di Consulenza del Lavoro",
                 itemListElement: [
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Elaborazione cedolini paga" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Gestione assunzioni" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Trasformazioni contrattuali" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Adempimenti INPS e INAIL" } },
-                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consulenza del lavoro" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Elaborazione cedolini paga", url: "https://elisamoratelli.it/servizi/elaborazione-cedolini-paga" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Assunzioni e pratiche HR", url: "https://elisamoratelli.it/servizi/pratiche-hr" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Trasformazioni contrattuali", url: "https://elisamoratelli.it/servizi/trasformazioni-contrattuali" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cessazioni del rapporto di lavoro", url: "https://elisamoratelli.it/servizi/cessazioni-rapporto-di-lavoro" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Dichiarativi annui", url: "https://elisamoratelli.it/servizi/dichiarativi-annui" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consulenza del lavoro", url: "https://elisamoratelli.it/servizi/consulenza-del-lavoro" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consulenza buste paga", url: "https://elisamoratelli.it/servizi/consulenza-buste-paga" } },
+                  { "@type": "Offer", itemOffered: { "@type": "Service", name: "Consulenza del lavoro per il settore edilizia", url: "https://elisamoratelli.it/edilizia" } },
                 ],
               },
             },
@@ -195,15 +232,15 @@ export default function HomePage() {
         <div className="flex-1 flex items-center px-8 lg:px-16 xl:px-24 py-32 lg:py-0 relative z-10">
           <AnimatedSection direction="left" className="max-w-lg">
             <p className="text-xs font-sans font-medium uppercase tracking-widest text-rose-cipria mb-5">
-              Elisa Moratelli — Consulente del Lavoro
+              Elisa Moratelli — Consulente del Lavoro a Rovereto
             </p>
             <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.08] mb-7">
               Gestisci il personale con{" "}
               <span className="text-rose-cipria">precisione.</span>
             </h1>
             <p className="text-lg font-sans text-white/70 leading-relaxed mb-10">
-              Paghe, assunzioni, contratti e adempimenti. Per aziende e PMI che vogliono
-              fare le cose per bene.
+              Paghe, assunzioni, contratti e adempimenti. Per aziende e PMI di Rovereto, Trento e
+              di tutto il Trentino che vogliono fare le cose per bene.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-10">
               <Link
@@ -350,11 +387,12 @@ export default function HomePage() {
               Chi sono
             </p>
             <h2 className="font-serif text-4xl lg:text-5xl text-anthracite mb-6 leading-snug">
-              Un punto di riferimento chiaro per la gestione del lavoro
+              Consulente del Lavoro a Rovereto, un punto di riferimento per la tua azienda
             </h2>
             <p className="text-base font-sans text-text-muted leading-relaxed mb-5">
-              Sono una Consulente del Lavoro specializzata nella gestione del personale per aziende
-              e PMI. Affianco i datori di lavoro nelle scelte quotidiane: dalle buste paga agli
+              Sono una Consulente del Lavoro iscritta all&apos;Albo, con studio a Rovereto presso CDL
+              Group. Seguo aziende, PMI, artigiani e professionisti della Vallagarina, di Trento e di
+              tutto il Trentino nelle scelte quotidiane sul personale: dalle buste paga agli
               adempimenti, dalle assunzioni alle cessazioni.
             </p>
             <p className="text-base font-sans text-text-muted leading-relaxed mb-8">
@@ -441,7 +479,7 @@ export default function HomePage() {
 
             {/* Card 1 — grande, navy, occupa 2 colonne */}
             <AnimatedSection delay={0} className="lg:col-span-2">
-              <div className="relative flex flex-col justify-between h-full min-h-[220px] p-8 rounded-2xl bg-navy overflow-hidden">
+              <Link href={servizi[0].href} className="group relative flex flex-col justify-between h-full min-h-[220px] p-8 rounded-2xl bg-navy overflow-hidden border border-navy hover:border-rose-cipria transition-colors duration-300">
                 <span className="absolute right-6 top-4 font-serif text-[120px] leading-none text-white/5 select-none pointer-events-none">01</span>
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-white/10 flex items-center justify-center text-rose-cipria mb-5">
@@ -450,12 +488,15 @@ export default function HomePage() {
                   <h3 className="font-serif text-2xl text-white mb-2 leading-snug">{servizi[0].title}</h3>
                   <p className="text-sm font-sans text-white/60 leading-relaxed max-w-sm">{servizi[0].description}</p>
                 </div>
-              </div>
+                <div className="flex items-center gap-1 text-rose-cipria text-sm font-sans font-medium mt-5 group-hover:gap-2 transition-all duration-200">
+                  Scopri il servizio <ArrowRight size={14} />
+                </div>
+              </Link>
             </AnimatedSection>
 
             {/* Card 2 */}
             <AnimatedSection delay={0.08}>
-              <div className="relative flex flex-col justify-between h-full min-h-[220px] p-7 rounded-2xl bg-card-bg border border-border-light overflow-hidden">
+              <Link href={servizi[1].href} className="group relative flex flex-col justify-between h-full min-h-[220px] p-7 rounded-2xl bg-card-bg border border-border-light hover:border-rose-cipria hover:shadow-md overflow-hidden transition-all duration-300">
                 <span className="absolute right-5 top-3 font-serif text-[90px] leading-none text-anthracite/4 select-none pointer-events-none">02</span>
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-rose-soft flex items-center justify-center text-rose-cta mb-5">
@@ -464,12 +505,15 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg text-anthracite mb-2 leading-snug">{servizi[1].title}</h3>
                   <p className="text-sm font-sans text-text-muted leading-relaxed">{servizi[1].description}</p>
                 </div>
-              </div>
+                <div className="flex items-center gap-1 text-rose-cta text-sm font-sans font-medium mt-5 group-hover:gap-2 transition-all duration-200">
+                  Scopri il servizio <ArrowRight size={14} />
+                </div>
+              </Link>
             </AnimatedSection>
 
             {/* Card 3 */}
             <AnimatedSection delay={0.12}>
-              <div className="relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-card-bg border border-border-light overflow-hidden">
+              <Link href={servizi[2].href} className="group relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-card-bg border border-border-light hover:border-rose-cipria hover:shadow-md overflow-hidden transition-all duration-300">
                 <span className="absolute right-5 top-3 font-serif text-[90px] leading-none text-anthracite/4 select-none pointer-events-none">03</span>
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-rose-soft flex items-center justify-center text-rose-cta mb-5">
@@ -478,12 +522,15 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg text-anthracite mb-2 leading-snug">{servizi[2].title}</h3>
                   <p className="text-sm font-sans text-text-muted leading-relaxed">{servizi[2].description}</p>
                 </div>
-              </div>
+                <div className="flex items-center gap-1 text-rose-cta text-sm font-sans font-medium mt-5 group-hover:gap-2 transition-all duration-200">
+                  Scopri il servizio <ArrowRight size={14} />
+                </div>
+              </Link>
             </AnimatedSection>
 
             {/* Card 4 */}
             <AnimatedSection delay={0.16}>
-              <div className="relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-card-bg border border-border-light overflow-hidden">
+              <Link href={servizi[3].href} className="group relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-card-bg border border-border-light hover:border-rose-cipria hover:shadow-md overflow-hidden transition-all duration-300">
                 <span className="absolute right-5 top-3 font-serif text-[90px] leading-none text-anthracite/4 select-none pointer-events-none">04</span>
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-rose-soft flex items-center justify-center text-rose-cta mb-5">
@@ -492,12 +539,15 @@ export default function HomePage() {
                   <h3 className="font-serif text-lg text-anthracite mb-2 leading-snug">{servizi[3].title}</h3>
                   <p className="text-sm font-sans text-text-muted leading-relaxed">{servizi[3].description}</p>
                 </div>
-              </div>
+                <div className="flex items-center gap-1 text-rose-cta text-sm font-sans font-medium mt-5 group-hover:gap-2 transition-all duration-200">
+                  Scopri il servizio <ArrowRight size={14} />
+                </div>
+              </Link>
             </AnimatedSection>
 
             {/* Card 5 */}
             <AnimatedSection delay={0.2} className="lg:col-span-1">
-              <div className="relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-rose-soft border border-rose-cipria/40 overflow-hidden">
+              <Link href={servizi[4].href} className="group relative flex flex-col justify-between h-full min-h-[200px] p-7 rounded-2xl bg-rose-soft border border-rose-cipria/40 hover:border-rose-cta hover:shadow-md overflow-hidden transition-all duration-300">
                 <span className="absolute right-5 top-3 font-serif text-[90px] leading-none text-rose-cta/10 select-none pointer-events-none">05</span>
                 <div>
                   <div className="w-11 h-11 rounded-xl bg-white/70 flex items-center justify-center text-rose-cta mb-5">
@@ -509,7 +559,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-1 text-rose-cta text-sm font-sans font-medium mt-5 group-hover:gap-2 transition-all duration-200">
                   Scopri il servizio <ArrowRight size={14} />
                 </div>
-              </div>
+              </Link>
             </AnimatedSection>
 
           </div>
@@ -520,6 +570,37 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 border border-anthracite/30 text-anthracite hover:border-rose-cta hover:text-rose-cta font-sans font-medium text-sm px-6 py-3 rounded-lg transition-all duration-200"
             >
               Vedi tutti i servizi <ArrowRight size={14} />
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ——— SETTORE EDILIZIA ——— */}
+      <section className="py-10 bg-white border-t border-border-light">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <Link
+              href="/edilizia"
+              className="group flex flex-col md:flex-row md:items-center gap-6 bg-navy rounded-2xl p-8 lg:p-10 border border-white/10 hover:border-rose-cipria transition-colors duration-300"
+            >
+              <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-rose-cipria flex-shrink-0">
+                <HardHat size={26} strokeWidth={1.5} />
+              </div>
+              <div className="flex-1">
+                <p className="text-xs font-sans font-medium uppercase tracking-widest text-rose-cipria mb-2">
+                  Settore specializzato
+                </p>
+                <h3 className="font-serif text-2xl lg:text-3xl text-white mb-2 leading-snug">
+                  Consulente del lavoro per imprese edili
+                </h3>
+                <p className="text-sm font-sans text-white/60 leading-relaxed max-w-2xl">
+                  Buste paga operai secondo il CCNL Edilizia, denuncia mensile Cassa Edile, assunzioni e
+                  cessazioni di personale di cantiere. Un servizio dedicato alle imprese di costruzioni del Trentino.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-2 text-white font-sans font-medium text-sm group-hover:gap-3 transition-all">
+                Scopri <ArrowRight size={15} />
+              </span>
             </Link>
           </AnimatedSection>
         </div>

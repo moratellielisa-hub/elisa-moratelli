@@ -12,15 +12,14 @@ import {
   UserMinus,
   ClipboardList,
   Mail,
-  ArrowRight,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import AnimatedLines from "@/components/AnimatedLines";
 
 export const metadata: Metadata = {
-  title: "Per Aziende | Gestione del Personale Senza Errori e Sanzioni",
+  title: "Consulente del Lavoro per Aziende e PMI a Rovereto | Gestione del Personale",
   description:
-    "Supporto completo per aziende e PMI: buste paga precise ogni mese, assunzioni corrette, contratti aggiornati, adempimenti INPS e INAIL senza scadenze saltate.",
+    "Supporto completo per aziende e PMI di Rovereto e Trentino: buste paga precise ogni mese, assunzioni corrette, contratti aggiornati, adempimenti INPS e INAIL senza scadenze saltate.",
   alternates: { canonical: "https://elisamoratelli.it/per-aziende" },
   openGraph: {
     url: "https://elisamoratelli.it/per-aziende",

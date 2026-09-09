@@ -10,14 +10,21 @@ import {
   ClipboardList,
   ArrowRight,
   CheckCircle,
-  MessageCircle,
+  Phone,
 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Consulente del Lavoro per Imprese Edili | Paghe, Assunzioni e CCNL Edilizia",
+  title: "Consulente del Lavoro per Imprese Edili a Rovereto | Paghe, Cassa Edile, CCNL Edilizia",
   description:
-    "Consulenza del lavoro specializzata per il settore edilizia: buste paga operai, assunzioni, cessazioni, CCNL Edilizia, Cassa Edile e gestione del personale di cantiere.",
+    "Consulenza del lavoro specializzata per imprese edili di Rovereto e Trentino: buste paga operai, denuncia Cassa Edile, assunzioni, cessazioni, CCNL Edilizia e gestione del personale di cantiere.",
+  alternates: { canonical: "https://elisamoratelli.it/edilizia" },
+  openGraph: {
+    url: "https://elisamoratelli.it/edilizia",
+    title: "Consulente del Lavoro per Imprese Edili | Paghe, Cassa Edile, CCNL Edilizia",
+    description:
+      "Buste paga operai, Cassa Edile, CCNL Edilizia e gestione del personale di cantiere per imprese edili del Trentino.",
+  },
 };
 
 const servizi = [
@@ -91,15 +98,42 @@ export default function EdiliziaPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqEdilizia.map((f) => ({
-              "@type": "Question",
-              name: f.domanda,
-              acceptedAnswer: { "@type": "Answer", text: f.risposta },
-            })),
-          }),
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "@id": "https://elisamoratelli.it/edilizia#service",
+              name: "Consulenza del lavoro per il settore edilizia",
+              serviceType: "Consulenza del lavoro per imprese edili",
+              url: "https://elisamoratelli.it/edilizia",
+              description:
+                "Buste paga operai secondo il CCNL Edilizia, denuncia mensile Cassa Edile, assunzioni e cessazioni di personale di cantiere per imprese edili di Rovereto e Trentino.",
+              provider: { "@id": "https://elisamoratelli.it/#business" },
+              areaServed: [
+                { "@type": "City", name: "Rovereto" },
+                { "@type": "City", name: "Trento" },
+                { "@type": "AdministrativeArea", name: "Trentino-Alto Adige" },
+              ],
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqEdilizia.map((f) => ({
+                "@type": "Question",
+                name: f.domanda,
+                acceptedAnswer: { "@type": "Answer", text: f.risposta },
+              })),
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://elisamoratelli.it" },
+                { "@type": "ListItem", position: 2, name: "Servizi", item: "https://elisamoratelli.it/servizi" },
+                { "@type": "ListItem", position: 3, name: "Settore edilizia", item: "https://elisamoratelli.it/edilizia" },
+              ],
+            },
+          ]),
         }}
       />
 
@@ -124,8 +158,8 @@ export default function EdiliziaPage() {
               Consulenza del lavoro per il settore edilizia
             </h1>
             <p className="text-lg font-sans text-white/70 leading-relaxed mb-8">
-              Gestione precisa di paghe, cantieri e personale per imprese edili, ditte artigiane e
-              aziende con operai.
+              Gestione precisa di paghe, Cassa Edile e personale di cantiere per imprese edili, ditte
+              artigiane e aziende con operai di Rovereto, della Vallagarina e di tutto il Trentino.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -135,13 +169,11 @@ export default function EdiliziaPage() {
                 Richiedi una consulenza
               </Link>
               <a
-                href="https://wa.me/39XXXXXXXXXX"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:+390464356826"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:border-rose-cipria hover:text-rose-cipria font-sans font-500 text-sm px-7 py-3.5 rounded-lg transition-all duration-200"
               >
-                <MessageCircle size={15} />
-                Scrivimi su WhatsApp
+                <Phone size={15} />
+                Chiama 0464 356826
               </a>
             </div>
           </AnimatedSection>

@@ -131,7 +131,7 @@ export default function HomePage() {
               url: "https://elisamoratelli.it",
               telephone: "+39 0464 356826",
               email: "info@elisamoratelli.it",
-              image: "https://elisamoratelli.it/elisa-foto.jpeg",
+              image: "https://elisamoratelli.it/elisa-hero.jpg",
               logo: "https://elisamoratelli.it/opengraph-image",
               priceRange: "€€",
               currenciesAccepted: "EUR",
@@ -290,8 +290,8 @@ export default function HomePage() {
           {/* FOTO — sfondo bianco si integra perché gradiente va verso rose-soft */}
           <div className="relative w-full h-full min-h-screen flex items-end justify-center">
             <Image
-              src="/elisa-foto.jpeg"
-              alt="Elisa Moratelli Consulente del Lavoro"
+              src="/elisa-hero.jpg"
+              alt="Elisa Moratelli, Consulente del Lavoro a Rovereto"
               fill
               sizes="45vw"
               className="object-cover object-top"
@@ -362,8 +362,8 @@ export default function HomePage() {
               {/* Foto con sfondo bianco — la metto su rose-soft così si integra */}
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-rose-soft border-4 border-white shadow-2xl">
                 <Image
-                  src="/elisa_cdl.jpg"
-                  alt="Elisa Moratelli Consulente del Lavoro"
+                  src="/elisa-presentazione.jpg"
+                  alt="Elisa Moratelli, Consulente del Lavoro iscritta all'Albo a Rovereto"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-top"
